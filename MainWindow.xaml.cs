@@ -19,11 +19,19 @@ namespace ColorSetting
         public MainWindow()
         {
             InitializeComponent();
+            alphaSlider.Value = 255;
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            colorLabel.Background = new SolidColorBrush
+            {
+                Color = Color.FromArgb(
+                    (byte)alphaSlider.Value,
+                    (byte)redSlider.Value,
+                    (byte)greenSlider.Value,
+                    (byte)blueSlider.Value)
+            };
         }
     }
 }

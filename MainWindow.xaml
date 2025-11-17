@@ -18,6 +18,10 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <EventSetter Event="ValueChanged"
                          Handler="Slider_ValueChanged"/>
+            <Setter Property="IsSnapToTickEnabled" 
+                    Value="True"/>
+            <Setter Property="Slider.AutoToolTipPlacement"
+                    Value="TopLeft"/>
         </Style>
 
         <Style TargetType="TextBox">
@@ -53,25 +57,42 @@
                />
         
         <Slider x:Name="redSlider" Grid.Row="0" Grid.Column="1"
+                Value="{Binding Text, ElementName=redBox}"
                 />
         <Slider x:Name="greenSlider" Grid.Row="1" Grid.Column="1"
+                Value="{Binding Text, ElementName=greenBox}"
                 />
         <Slider x:Name="blueSlider" Grid.Row="2" Grid.Column="1"
+                Value="{Binding Text, ElementName=blueBox}"
                 />
         <Slider x:Name="alphaSlider" Grid.Row="3" Grid.Column="1"
+                Value="{Binding Text, ElementName=alphaBox}"
                 />
         
         <TextBox x:Name="redBox" Grid.Row="0" Grid.Column="2"
+                 Text="{Binding Value, ElementName=redSlider}"
                  />
         <TextBox x:Name="greenBox" Grid.Row="1" Grid.Column="2"
+                 Text="{Binding Value, ElementName=greenSlider}"
                  />
         <TextBox x:Name="blueBox" Grid.Row="2" Grid.Column="2"
+                 Text="{Binding Value, ElementName=blueSlider}"
                  />
         <TextBox x:Name="alphaBox" Grid.Row="3" Grid.Column="2"
+                 Text="{Binding Value, ElementName=alphaSlider}"
                  />
 
         <Label x:Name="colorLabel" Grid.Row="0" Grid.Column="3"
-               Grid.RowSpan="4" Margin="10"/>
+               VerticalAlignment="Stretch"
+               HorizontalAlignment="Stretch"
+               Grid.RowSpan="4" Margin="10"
+               Panel.ZIndex="10"/>
+        
+        <Label Grid.Row="0" Grid.Column="3"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               Grid.RowSpan="4" Margin="10"
+               Content ="П р о з р а ч н о "/>
 
     </Grid>
 </Window>
