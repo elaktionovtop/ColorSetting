@@ -4,8 +4,28 @@
 
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
         <Style TargetType="Slider">
-           
+            <Setter Property="Width" Value="256"/>
+            <Setter Property="Minimum" Value="0"/>
+            <Setter Property="Maximum" Value="255"/>
+            <Setter Property="Value" Value="0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <EventSetter Event="ValueChanged"
+                         Handler="Slider_ValueChanged"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center"/>
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
         </Style>
     </Window.Resources>
     <Grid>
@@ -24,18 +44,32 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="Красный:" 
-               HorizontalAlignment="Right" VerticalAlignment="Center"
                />
+        <Label Grid.Row="1" Grid.Column="0" Content="Зеленый:" 
+               />
+        <Label Grid.Row="2" Grid.Column="0" Content="Синий:" 
+               />
+        <Label Grid.Row="3" Grid.Column="0" Content="Прозрачность:" 
+               />
+        
         <Slider x:Name="redSlider" Grid.Row="0" Grid.Column="1"
-                Width="256" Minimum="0" Maximum="255" Value="0"
-                VerticalAlignment="Center"
-                ValueChanged="Slider_ValueChanged"
                 />
+        <Slider x:Name="greenSlider" Grid.Row="1" Grid.Column="1"
+                />
+        <Slider x:Name="blueSlider" Grid.Row="2" Grid.Column="1"
+                />
+        <Slider x:Name="alphaSlider" Grid.Row="3" Grid.Column="1"
+                />
+        
         <TextBox x:Name="redBox" Grid.Row="0" Grid.Column="2"
-                 HorizontalContentAlignment="Center"
-                 VerticalContentAlignment="Center"
-                 Text="0"
                  />
+        <TextBox x:Name="greenBox" Grid.Row="1" Grid.Column="2"
+                 />
+        <TextBox x:Name="blueBox" Grid.Row="2" Grid.Column="2"
+                 />
+        <TextBox x:Name="alphaBox" Grid.Row="3" Grid.Column="2"
+                 />
+
         <Label x:Name="colorLabel" Grid.Row="0" Grid.Column="3"
                Grid.RowSpan="4" Margin="10"/>
 
